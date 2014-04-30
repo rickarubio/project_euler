@@ -5,12 +5,18 @@ get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000.
 =end
 
-# Inputs: multiples, max-value
-# Output: sum of all the multiples specified below max-range
+# Inputs: max value, multiples
+# Output: sum of all the unique multiples specified below max-range
 
 module MathUtilities
   def MathUtilities.find_sum_of_multiples(max_value, *multiples)
-    p max_value
-    p multiples
+    values = []
+    multiples.each do |multiple|
+      for i in 1..max_value
+        current_value = multiple * i
+        values << current_value if current_value < max_value
+      end
+    end
+    values.uniq.inject(:+)
   end
 end
