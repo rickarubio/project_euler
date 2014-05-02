@@ -9,3 +9,9 @@ Find the sum of all the multiples of 3 or 5 below 1000.
   Inputs: max value, multiples
   Output: sum of all the unique multiples specified below max-range
 */
+
+var findSumOfMultiples = function(maxValue, multiples) {
+  return 5;
+}
+
+module.exports = findSumOfMultiples;
