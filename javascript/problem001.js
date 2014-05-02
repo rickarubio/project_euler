@@ -11,7 +11,30 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 */
 
 var findSumOfMultiples = function(maxValue, multiples) {
-  return 5;
+  var values = [];
+  for(var i=0; i < multiples.length; i++){
+    for(var j=0; i <= maxValue; j++){
+      var currentValue = multiples[i] * j
+      if (currentValue < maxValue) {
+        values.push(currentValue);
+      } else {
+        break;
+      }
+    }
+  }
+
+  values = values.sort();
+  var sum = 0;
+  var previousValue = 0;
+
+  for(var i=0; i < values.length; i++){
+    if (previousValue != values[i]){
+      sum += values[i];
+    }
+    previousValue = values[i];
+  }
+
+  return sum;
 }
 
 module.exports = findSumOfMultiples;
